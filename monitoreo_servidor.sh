@@ -1,8 +1,10 @@
 #!/bin/bash
 
-UMBRALCPU=80
-UMBRALRAM=80
-UMBRALDISCO=85
+UMBRALCPU="80"
+UMBRALRAM="80"
+UMBRALDISCO="85"
+
+echo "[$(date '+%Y/%m/%d %H:%M:%S')] Consulta estado del servidor"
 
 USORAM=$(free | grep Mem | awk '{print int (($3 / $2)*100)}')
 
