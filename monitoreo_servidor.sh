@@ -15,10 +15,10 @@ USORAM=$(free | grep Mem | awk '{print int (($3 / $2)*100)}')
 # Respuesta que se debe imprimir
 
 if [ "$USORAM" -ge "$UMBRALRAM" ]; then
-	echo "WARNING, USO ELEVADO DE RAM. Uso actual: $USORAM%"
+	echo "WARNING, USO ELEVADO DE RAM: $USORAM%"
 fi	
 if [ "$USORAM" -le "$UMBRALRAM" ]; then
-	echo "USO DE RAM NORMAL. Uso actual: $USORAM%"
+	echo "USO DE RAM ACTUAL: $USORAM%"
 fi
 
 # Definición del uso del disco
@@ -27,10 +27,10 @@ USODISCO=$(df -h . | tail -1 | awk '{print $5}' | tr -d '%')
 
 # Respuesta que imprime el disco
 if [ "$USODISCO" -ge "$UMBRALDISCO" ]; then
-	echo "WARNING, DISCO CASI LLENO. Uso actual: $USODISCO"
+	echo "WARNING, DISCO CASI LLENO: $USODISCO%"
 fi
 if [ "$USODISCO" -le "$UMBRALDISCO" ]; then
-	echo "ESPACIO DISPONIBLE: $USODISCO"
+	echo "USO DE ALMACENAMIENTO ACTUAL: $USODISCO%"
 fi
 
 # Definición del uso de la CPU
@@ -39,8 +39,8 @@ USOCPU=$(top -b -d 0.5 -n 5 | grep Cpu | tail -1 | awk '{print int(100-$8)}')
 
 # Respuesta que se imprime del uso del CPU
 if [ "$USOCPU" -ge "$UMBRALCPU" ]; then
-	echo "WARNING, uso alto de CPU. Uso actual: $USOCPU%"
+	echo "WARNING, USO ALTO DE LA CPU: $USOCPU%"
 fi
 if [ "$USOCPU" -le "$UMBRALCPU" ]; then
-	echo "Uso de CPU actual: $USOCPU%"
+	echo "USO DE CPU: $USOCPU%"
 fi
