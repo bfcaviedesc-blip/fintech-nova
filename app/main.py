@@ -4,6 +4,8 @@ from typing import Optional
 import uuid
 from datetime import datetime
 
+#Prueba despliegue
+
 app = FastAPI(
     title="FinTech Nova API",
     description="API de operaciones financieras - Demo CI/CD DevSecOps",
