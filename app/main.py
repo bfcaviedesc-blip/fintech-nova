@@ -4,10 +4,6 @@ from typing import Optional
 import uuid
 from datetime import datetime
 
-#prueba
-
-#Prueba despliegue
-
 app = FastAPI(
     title="FinTech Nova API",
     description="API de operaciones financieras - Demo CI/CD DevSecOps",
@@ -26,6 +22,8 @@ class Transferencia(BaseModel):
     cuenta_destino: str   = Field(..., example="ACC-002")
     monto:          float = Field(..., gt=0, example=100.00)
     descripcion:    Optional[str] = None
+
+    #prueba
 
 @app.get('/')
 def raiz():
